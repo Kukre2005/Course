@@ -43,7 +43,7 @@ class MainActivity : ComponentActivity() {
                     modifier = Modifier.fillMaxSize(),
                     color = MaterialTheme.colorScheme.background
                 ) {
-                    TopicGrid(
+                    CourseGrid(
                         modifier = Modifier.padding(dimensionResource(R.dimen.padding_small))
                     )
 
@@ -54,7 +54,7 @@ class MainActivity : ComponentActivity() {
 }
 
 @Composable
-fun TopicGrid(modifier: Modifier = Modifier) {
+fun CourseGrid(modifier: Modifier = Modifier) {
     LazyVerticalGrid(
         columns = GridCells.Fixed(2),
         verticalArrangement = Arrangement.spacedBy(dimensionResource(R.dimen.padding_small)),
@@ -62,13 +62,13 @@ fun TopicGrid(modifier: Modifier = Modifier) {
         modifier = modifier
     ) {
         items(DataSource.topics) {topic ->
-            TopicCard(topic)
+            CourseCard(topic)
         }
     }
 }
 
 @Composable
-fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
+fun CourseCard(topic: Topic, modifier: Modifier = Modifier) {
     Card {
         Row {
             Box {
@@ -112,7 +112,7 @@ fun TopicCard(topic: Topic, modifier: Modifier = Modifier) {
 
 @Preview(showBackground = true)
 @Composable
-fun TopicPreview() {
+fun CoursePreview() {
     CourseTheme {
         val topic = Topic(R.string.photography, 321, R.drawable.photography)
         Column (
@@ -120,7 +120,7 @@ fun TopicPreview() {
             verticalArrangement = Arrangement.Center,
             horizontalAlignment = Alignment.CenterHorizontally,
         ) {
-            TopicCard(topic = topic)
+            CourseCard(topic = topic)
         }
     }
 }
